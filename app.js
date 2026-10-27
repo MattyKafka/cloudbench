@@ -48,7 +48,6 @@ async function loadPlatforms() {
     ];
     drawPlatforms();
     $("#deploymentStatus").textContent = "Adresy platforem se nepodařilo načíst.";
-    $("#platformHint").textContent = "Adresy platforem se nepodařilo načíst. Obnov stránku a zkus to znovu.";
     console.warn("CloudBench: platform configuration unavailable.", err);
   }
 }
@@ -79,7 +78,6 @@ function drawPlatforms() {
   $("#deploymentCount").textContent = String(configured).padStart(2, "0");
   const missing = state.platforms.filter((p) => !validRemoteUrl(p.url)).map((p) => p.name);
   $("#deploymentStatus").textContent = configured === 3 ? "Všechny veřejné adresy jsou nastavené" : configured === 0 ? "Veřejné adresy zatím nejsou nastavené" : `Chybí adresa: ${missing.join(", ")}`;
-  $("#platformHint").textContent = configured === 3 ? "Všechny tři platformy mají nastavenou veřejnou adresu. Web otevřeš odkazem na příslušné kartě. Počet vyjadřuje vyplněné adresy, nikoli kontrolu dostupnosti webů." : configured === 0 ? "Veřejné adresy zatím nejsou nastavené." : `Nastavené adresy: ${configured} ze 3. Weby s vyplněnou adresou můžeš otevřít. Chybí adresa: ${missing.join(", ")}.`;
   $("#sideEnvironment").textContent = state.platformId === "LOCAL" ? "Místní náhled" : `${state.platformId} · nasazená verze`;
   $("#sideHost").textContent = state.platformId === "LOCAL" ? (location.hostname || "Místní náhled") : location.hostname;
 }
