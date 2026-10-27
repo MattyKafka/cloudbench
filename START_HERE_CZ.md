@@ -9,9 +9,3 @@ Projekt je čisté HTML, CSS a JavaScript; Python ani Node.js nejsou nutné.
 
 **Poznámka k metodice:** Výsledky jsou ovlivněny připojením, cache prohlížeče a CDN.
 Veřejné URL zatím nejsou vyplněny. Doplní se po nasazení do `data/platforms.json`.
-
-## Co je nové ve verzi v3
-- Světlý minimalistický vzhled se střídmým modrým akcentem.
-- Odstraněná horní lišta a dekorativní štítky, sjednocené číslování 01–05.
-- Opravené HTML třetího scénáře, doplněné jeho ilustrativní zobrazení.
-- Nezměněný princip měření a formát exportu JSON/CSV.
