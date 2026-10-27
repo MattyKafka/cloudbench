@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="cs"><head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Základní HTML stránka | CloudBench</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;background:#0b1c18;color:#f4f7ff}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;flex-direction:column}.top{border-bottom:1px solid #26463b;padding:18px max(24px,8vw);display:flex;justify-content:space-between;gap:18px;align-items:center}.brand{font-weight:800;letter-spacing:-.3px}.top a{color:#aad7ac;text-decoration:none;font-size:13px}main{width:min(800px,88vw);margin:auto;padding:65px 0 110px}.eyebrow{font-size:11px;letter-spacing:2px;color:#addbb0;font-weight:800}h1{font-size:clamp(39px,6vw,70px);letter-spacing:-2px;margin:20px 0 12px;line-height:1.1}p{color:#80a282;line-height:1.8;max-width:550px}.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:30px}.metric{border:1px solid #26473c;border-radius:10px;padding:19px;background:#122823}.label{display:block;font-size:10px;letter-spacing:1px;color:#769577}.metric strong{font-size:24px;display:block;margin-top:10px;font-variant-numeric:tabular-nums}.disclaimer{margin-top:20px;font-size:12px}footer{padding:23px max(24px,8vw);border-top:1px solid #26463b;color:#69856b;font-size:11px}@media(max-width:560px){.metrics{grid-template-columns:1fr}.top{padding:16px 24px}}
+ .eyebrow{color:#aad8af}.metric{background:#16291f;border-color:#34513e}.top{border-color:#34513e}.top a{color:#aedcb6}.disclaimer{color:#b4c6b8}</style>
+</head><body>
+<header class="top"><span class="brand">cloudbench / základní stránka</span><a href="../index.html#scenarios">← Zpět na přehled</a></header>
+<main><span class="eyebrow">TEST 01 / ZÁKLADNÍ HTML</span><h1>Základní<br/>HTML stránka.</h1><p>Jednoduchá HTML stránka s vloženými styly a krátkým měřicím skriptem. Slouží k zaznamenání základních časů načítání dokumentu.</p><div class="metrics"><div class="metric"><span class="label">ODEZVA TTFB*</span><strong id="ttfb">—</strong></div><div class="metric"><span class="label">NAČTENÍ DOM</span><strong id="dom">—</strong></div><div class="metric"><span class="label">ÚPLNÉ NAČTENÍ</span><strong id="load">—</strong></div></div><p class="disclaimer">* Hodnota TTFB zahrnuje také vliv sítě a CDN. Obnov stránku pro další měření. Údaje nevyjadřují pouze výkon serveru.</p></main>
+<footer>Stejný testovací dokument pro AWS Amplify · Azure Static Web Apps · Firebase Hosting.</footer>
+<script>
+window.addEventListener('load',()=>{setTimeout(()=>{const n=performance.getEntriesByType('navigation')[0];if(!n)return;for(const [id,value] of Object.entries({ttfb:n.responseStart-n.requestStart,dom:n.domContentLoadedEventEnd-n.startTime,load:n.loadEventEnd-n.startTime})){document.getElementById(id).textContent=Number.isFinite(value)?value.toFixed(1)+' ms':'—';}},0)});
+</script>
+</body></html>

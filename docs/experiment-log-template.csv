@@ -1,0 +1,4 @@
+provider,service,experiment_date_utc,browser_and_version,device,connection,location_city,deployment_time_seconds,deployment_steps,complications,site_url,git_commit,ttfb_median_ms,notes
+AWS,Amplify Hosting,,,,,,,,,,,,
+AZURE,Static Web Apps,,,,,,,,,,,,
+GOOGLE,Firebase Hosting,,,,,,,,,,,,

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#0f1722" name="theme-color"/>
+<meta content="CloudBench: akademické srovnání statického webhostingu na AWS, Microsoft Azure a Google Cloud s opakovaným měřením přenosu souborů." name="description"/>
+<title>CloudBench | Srovnání webhostingu</title>
+<link href="assets/mark.svg" rel="icon" type="image/svg+xml"/>
+<link href="styles.css" rel="stylesheet"/>
+<script defer="" src="app.js"></script>
+</head>
+<body>
+<div class="site-shell">
+<aside aria-label="Hlavní navigace" class="sidebar">
+<a aria-label="Úvodní stránka CloudBench" class="logo" href="#overview">
+<span class="logo-type">cloud<span>bench</span><small>SROVNÁNÍ WEBHOSTINGU</small></span>
+</a>
+<div class="sidebar-kicker">SEKCE PROJEKTU</div>
+<nav aria-label="Sekce webu" class="side-nav">
+<a class="nav-item active" href="#overview"><span>Přehled</span><span class="nav-index">01</span></a>
+<a class="nav-item" href="#scenarios"><span>Testovací scénáře</span><span class="nav-index">02</span></a>
+<a class="nav-item" href="#hosts"><span>Cloudové platformy</span><span class="nav-index">03</span></a>
+<a class="nav-item" href="#benchmark"><span>Měření přenosu</span><span class="nav-index">04</span></a>
+<a class="nav-item" href="#methodology"><span>Metodika</span><span class="nav-index">05</span></a>
+</nav>
+<div class="sidebar-bottom">
+<div class="side-panel"><span class="tiny-label">AKTUÁLNÍ PROSTŘEDÍ</span><span class="env-line"><span id="sideEnvironment">Lokální verze</span></span><span class="micro-muted" id="sideHost">Čeká se na nasazení</span></div>
+<div class="side-footer">Studijní projekt · PEF ČZU · 2026</div>
+</div>
+</aside>
+<main class="main" id="overview">
+<div class="page-content">
+<section aria-labelledby="hero-title" class="hero">
+<div class="hero-content">
+<div class="section-eyebrow" id="overview-label">01 — Přehled projektu</div><p class="academic-meta">Semestrální projekt · Provozně ekonomická fakulta ČZU</p><h1 id="hero-title">Srovnání cloudového<br/><span>webhostingu</span></h1>
+<p class="hero-copy">Praktické porovnání statického webhostingu na AWS, Microsoft Azure a Google Cloud. Jeden zdrojový kód, jednotný postup měření a ověřitelné výsledky.</p>
+<div class="hero-buttons"><a class="btn btn-primary" href="#benchmark">Přejít k měření</a><a class="btn btn-outline" href="#scenarios">Prohlédnout scénáře</a></div>
+</div>
+<div aria-label="Grafické znázornění srovnávaných hostingových služeb" class="hero-diagram">
+<div class="diagram-graphic">
+<div aria-hidden="true" class="diagram-glow"></div>
+<div aria-hidden="true" class="diagram-orbit orbit-1"></div>
+<div aria-hidden="true" class="diagram-orbit orbit-2"></div>
+<div aria-hidden="true" class="diagram-orbit orbit-3"></div>
+<div aria-hidden="true" class="diagram-beam beam-left"></div>
+<div aria-hidden="true" class="diagram-beam beam-right"></div>
+<div aria-hidden="true" class="diagram-beam beam-bottom"></div>
+<div class="diagram-pill pill-aws"><strong>AWS</strong><span>Amplify Hosting</span></div>
+<div class="diagram-pill pill-azure"><strong>Microsoft Azure</strong><span>Static Web Apps</span></div>
+<div class="diagram-pill pill-google"><strong>Google Cloud</strong><span>Firebase Hosting</span></div>
+<div class="diagram-core">
+<div class="core-ring ring-outer"></div>
+<div class="core-ring ring-mid"></div>
+<div class="core-inner">
+<small>CloudBench</small>
+<strong>Testovací web</strong>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div aria-label="Přehled projektu" class="stat-row">
+<div class="stat"><div class="stat-head">PLATFORMY</div><div class="stat-number">03<span>poskytovatelé</span></div><div class="stat-desc">AWS · Azure · Google Cloud</div></div>
+<div class="stat"><div class="stat-head">SCÉNÁŘE</div><div class="stat-number">03<span>testy</span></div><div class="stat-desc">Základní · Obrázky · Interaktivita</div></div>
+<div class="stat"><div class="stat-head">TESTOVACÍ SOUBORY</div><div class="stat-number">03<span>velikosti souborů</span></div><div class="stat-desc">128 KB · 512 KB · 1 MB</div></div>
+<div class="stat"><div class="stat-head">NASAZENÍ</div><div class="stat-number"><span id="deploymentCount">00</span><span>/ 03 online</span></div><div class="stat-desc" id="deploymentStatus">Adresy doplníme po nasazení</div></div>
+</div>
+<section aria-labelledby="scenario-heading" class="section" id="scenarios">
+<div class="section-top"><div><div class="section-eyebrow">02 — Testovací scénáře</div><h2 id="scenario-heading">Testovací scénáře</h2><p>Každý scénář sleduje jiný typ obsahu. Na všech platformách používáme stejné soubory.</p></div></div>
+<div class="scenario-grid">
+<article class="scenario-card"><div aria-hidden="true" class="scenario-visual baseline-visual"><div class="mini-browser"><div class="mini-browser-top"></div><div class="mini-browser-body"><div class="visual-long"></div><div class="visual-short"></div><div class="visual-thin"></div><div class="visual-thin short"></div></div></div><span class="visual-corner">&lt;/&gt;</span></div><div class="scenario-info"><h3>Základní HTML stránka</h3><p>Jednoduchý dokument HTML s CSS. Sledujeme odezvu a čas načtení stránky.</p><a class="card-link" href="tests/baseline.html">Otevřít scénář </a></div></article>
+<article class="scenario-card"><div aria-hidden="true" class="scenario-visual media-visual"><img alt="" loading="lazy" src="assets/media/scene-01.jpg"/><img alt="" loading="lazy" src="assets/media/scene-02.jpg"/><img alt="" loading="lazy" src="assets/media/scene-03.jpg"/></div><div class="scenario-info"><h3>Načítání obrázků</h3><p>Šest obrázků uložených přímo na hostingu. Sledujeme načítání většího objemu dat.</p><a class="card-link" href="tests/media.html">Otevřít scénář </a></div></article>
+<article class="scenario-card"><div aria-hidden="true" class="scenario-visual interactive-visual">
+<div class="graph-frame"><div class="graph-heading"><span></span><span></span><span></span></div>
+<div class="graph-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div></div><div class="scenario-info">
+<h3>Interaktivní stránka</h3>
+<p>Načtení modelového datového souboru JSON, filtrování tabulky a vykreslení grafu. Výpočty probíhají v prohlížeči.</p>
+<a class="card-link" href="tests/interactive.html">Otevřít scénář <span aria-hidden="true">↗</span></a>
+</div></article>
+</div>
+</section>
+<section aria-labelledby="hosts-heading" class="section" id="hosts">
+<div class="section-top"><div><div class="section-eyebrow">03 — Cloudové platformy</div><h2 id="hosts-heading">Srovnávané platformy</h2><p>Odkazy na veřejně dostupné weby doplníme po jejich nasazení.</p></div></div>
+<div aria-live="polite" class="host-grid" id="platformCards"></div>
+<div class="hint-strip"><div><strong>Weby zatím nejsou nasazené.</strong> Po získání veřejných HTTPS adres je doplníme do souboru <code>data/platforms.json</code>; poté se přepínání mezi poskytovateli automaticky aktivuje.</div></div>
+</section>
+<section aria-labelledby="benchmark-heading" class="section" id="benchmark">
+<div class="section-top"><div><div class="section-eyebrow">04 — Měření přenosu</div><h2 id="benchmark-heading">Měření přenosových časů</h2><p>Měříme dobu stažení stejných souborů o známé velikosti. Výsledky se ukládají pouze do exportovaného souboru.</p></div></div>
+<div class="bench-layout">
+<div class="bench-controls panel"><div class="panel-heading"><div><strong>Test přenosu souborů</strong><span>Nastavení měření v prohlížeči</span></div></div><div class="bench-form"><label for="repetitions">Počet opakování na soubor</label><select id="repetitions"><option value="3">3 opakování · rychlá kontrola</option><option selected="" value="5">5 opakování · doporučeno</option><option value="10">10 opakování · rozšířený test</option></select><label for="payloadSelection">Velikost souboru</label><select id="payloadSelection"><option value="all">Všechny velikosti (128 KB / 512 KB / 1 MB)</option><option value="128">Pouze 128 KB</option><option value="512">Pouze 512 KB</option><option value="1024">Pouze 1 MB</option></select><div class="test-note"><span>ⓘ</span> Před zahájením proběhne zahřívací požadavek. Každý měřený přenos používá vlastní parametr URL a nastavení <code>cache: no-store</code>; výsledky však ovlivňuje také prohlížeč a síť.</div><button class="btn btn-primary btn-full" id="runBenchmark" type="button">Spustit měření </button><button class="btn btn-outline btn-full" hidden="" id="cancelBenchmark" type="button">Zastavit měření</button></div><div class="bench-footer"><span id="benchStatus" role="status">PŘIPRAVENO</span><span id="benchProgress">0 / 0 požadavků</span></div><div class="progress-track"><span id="progressBar"></span></div></div>
+<div class="bench-results panel"><div class="results-header"><div><span class="tiny-label">VÝSLEDKY MĚŘENÍ</span><h3>Doby přenosu souborů</h3></div><span class="results-label" id="resultsLabel">ZATÍM BEZ DAT</span></div><div class="measurement-rows" id="measurementRows"><div class="empty-chart"><div class="empty-chart-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><strong>Měření ještě neproběhlo</strong><span>Výsledky se zobrazí po spuštění testu.</span></div></div><div class="results-actions"><button class="btn btn-outline btn-sm" disabled="" id="downloadJson" type="button">↓ Exportovat JSON</button><button class="btn btn-outline btn-sm" disabled="" id="downloadCsv" type="button">↓ Exportovat CSV</button><span class="micro-muted">Výsledky se neodesílají na server.</span></div></div>
+</div>
+<div class="comparison-panel panel"><div class="comparison-top"><div><span class="tiny-label">SROVNÁNÍ PLATFOREM</span><h3>Porovnání naměřených hodnot</h3><p>Na každé platformě stáhni soubor JSON s výsledky. Poté nahraj všechny tři soubory sem a porovnej mediány přenosových časů.</p></div><label class="btn btn-outline btn-sm upload-control">↑ Načíst soubory JSON <input accept=".json,application/json" id="importResults" multiple="" type="file"/></label></div><div class="comparison-table-wrap"><table class="comparison-table" id="comparisonTable"><thead><tr><th>Platforma</th><th>Medián 128 KB</th><th>Medián 512 KB</th><th>Medián 1 MB</th><th>Čas měření</th></tr></thead><tbody id="comparisonBody"><tr><td class="empty-cell" colspan="5">Zatím nejsou načtena žádná měření.</td></tr></tbody></table></div><p class="small-note" id="importMessage" role="status">Lze načíst pouze výsledky exportované aplikací CloudBench.</p></div>
+</section>
+<section aria-labelledby="method-heading" class="section methodology" id="methodology"><div class="section-top"><div><div class="section-eyebrow">05 — Metodika testování</div><h2 id="method-heading">Metodika a podmínky testování</h2><p>Metodika stanovuje stejné podmínky a uvádí omezení výsledků.</p></div></div><div class="method-grid"><div class="method-step"><span>01 / PŘÍPRAVA</span><h3>Stejné soubory</h3><p>Na všechny hostingy nasadíme totožnou verzi zdrojového kódu a souborů. Během měření nebudeme používat úpravy jen pro jednu platformu.</p></div><div class="method-step"><span>02 / MĚŘENÍ</span><h3>Srovnatelné podmínky</h3><p>Použijeme stejný prohlížeč, připojení a počet opakování. Před měřením provedeme zahřívací přenos.</p></div><div class="method-step"><span>03 / ZÁZNAM</span><h3>Naměřené hodnoty</h3><p>Z každé služby vyexportujeme skutečná měření a zaznamenáme jejich datum, čas a podmínky. Pro srovnání použijeme mediány.</p></div><div class="method-step"><span>04 / VYHODNOCENÍ</span><h3>Omezení výsledků</h3><p>Výsledky zahrnují vliv prohlížeče, sítě, cache a CDN. Nevypovídají o celkovém výkonu poskytovatele.</p></div></div><div class="protocol-note"><div><strong>Co přesně měříme</strong><p>JavaScript v interaktivním scénáři běží v prohlížeči uživatele. Doba jeho zpracování proto nevypovídá o výkonu cloudového serveru. Testujeme statický webhosting, nikoli databáze nebo backendové služby.</p></div></div></section>
+<footer class="footer"><span>© 2026 CLOUDBENCH · SEMESTRÁLNÍ PROJEKT PEF ČZU</span><span>Výsledky budou doplněny po skutečném nasazení.</span></footer>
+</div>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="cs"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="#f7f8fa" name="theme-color"/><title>Načítání obrázků | CloudBench</title><link href="scenario.css" rel="stylesheet"/><script defer="" src="scenario.js"></script></head>
+<body data-scenario="media">
+<header class="test-header"><a class="test-brand" href="../index.html">CloudBench<span class="test-header-name"> / Načítání obrázků</span></a><div class="header-actions"><span id="currentProvider">MÍSTNÍ NÁHLED</span><a class="back" href="../index.html#scenarios">← Zpět na přehled</a></div></header>
+<main class="test-content"><div class="test-intro"><div class="test-label">TEST 02 / STATICKÉ SOUBORY</div><h1>Načítání<br/> <em>obrazového obsahu.</em></h1><p>Šest souborů JPEG uložených přímo na hostingu. Měříme načítání stránky s obrázky bez závislosti na externím úložišti.</p></div>
+<section aria-label="Naměřené časy načítání stránky" class="metric-strip"><div><span>ODEZVA TTFB</span><strong data-timing="ttfb">—</strong></div><div><span>NAČTENÍ DOKUMENTU</span><strong data-timing="load">—</strong></div><div><span>POČET OBRÁZKŮ</span><strong id="imageCount">—</strong></div><div><span>PŘENESENÁ DATA*</span><strong id="imageTransfer">—</strong></div></section>
+<section class="gallery-section"><div class="gallery-heading"><h2>Soubor obrázků <span>/ 006</span></h2><span>TESTOVACÍ PODKLADY</span></div><div class="test-gallery">
+<figure><img alt="Abstraktní modrý testovací obrázek" height="760" src="../assets/media/scene-01.jpg" width="1200"/><figcaption>OBR. 01 <span>Modrý motiv</span></figcaption></figure>
+<figure><img alt="Abstraktní zelenomodrý testovací obrázek" height="760" src="../assets/media/scene-02.jpg" width="1200"/><figcaption>OBR. 02 <span>Zelenomodrý motiv</span></figcaption></figure>
+<figure><img alt="Abstraktní oranžový testovací obrázek" height="760" src="../assets/media/scene-03.jpg" width="1200"/><figcaption>OBR. 03 <span>Oranžový motiv</span></figcaption></figure>
+<figure><img alt="Abstraktní fialový testovací obrázek" height="760" src="../assets/media/scene-04.jpg" width="1200"/><figcaption>OBR. 04 <span>Fialový motiv</span></figcaption></figure>
+<figure><img alt="Abstraktní azurový testovací obrázek" height="760" src="../assets/media/scene-05.jpg" width="1200"/><figcaption>OBR. 05 <span>Azurový motiv</span></figcaption></figure>
+<figure><img alt="Abstraktní růžový testovací obrázek" height="760" src="../assets/media/scene-06.jpg" width="1200"/><figcaption>OBR. 06 <span>Růžový motiv</span></figcaption></figure>
+</div></section>
+<section class="test-footer-card"><div><span class="test-label">INTERPRETACE VÝSLEDKŮ</span><p>Pokud prohlížeč načte obrázek z mezipaměti, může se přenesená velikost zobrazit jako nula. Při srovnání používej stejné podmínky a zkontroluj stav cache. *Údaj pochází z rozhraní Resource Timing API.</p></div><div aria-label="Přepínání mezi poskytovateli webhostingu" class="provider-switcher" id="providerSwitcher"></div></section>
+</main><footer class="test-footer">CLOUDBENCH / SROVNÁNÍ STATICKÉHO WEBHOSTINGU · 2026</footer></body></html>

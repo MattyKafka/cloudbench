@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "platforms": [
+    {"id": "AWS", "name": "Amazon Web Services", "service": "Amplify Hosting", "url": ""},
+    {"id": "AZURE", "name": "Microsoft Azure", "service": "Static Web Apps", "url": ""},
+    {"id": "GOOGLE", "name": "Google Cloud", "service": "Firebase Hosting", "url": ""}
+  ]
+}
