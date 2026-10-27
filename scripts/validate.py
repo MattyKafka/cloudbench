@@ -16,7 +16,7 @@ class HTMLLinks(HTMLParser):
             if key in d:self.links.append((key,d[key]))
 errors=[]
 for page in PAGES:
-    p=HTMLLinks();p.feed(page.read_text())
+    p=HTMLLinks();p.feed(page.read_text(encoding="utf-8"))
     for key, ref in p.links:
         u=urlsplit(ref)
         if not u.path:
@@ -29,10 +29,15 @@ for page in PAGES:
 for size in (128,512,1024):
     path=ROOT/'assets'/'payloads'/f'{size}kb.bin'
     if path.stat().st_size!=size*1024:errors.append(f'{path}: unexpected length')
-conf=json.loads((ROOT/'data'/'platforms.json').read_text())
+conf=json.loads((ROOT/'data'/'platforms.json').read_text(encoding="utf-8"))
 if len(conf.get('platforms',[]))!=3:errors.append('provider config malformed')
-if any(p['url'] for p in conf['platforms']):errors.append('production URL should not be set prior to deployment')
-rows=json.loads((ROOT/'data'/'synthetic-records.json').read_text())
+for platform in conf['platforms']:
+    url = platform.get('url', '')
+    if url:
+        parsed = urlsplit(url)
+        if parsed.scheme != 'https' or not parsed.hostname or parsed.query or parsed.fragment or parsed.path.endswith('.html'):
+            errors.append('provider URL must be an HTTPS base URL')
+rows=json.loads((ROOT/'data'/'synthetic-records.json').read_text(encoding="utf-8"))
 assert len(rows['items'])==180
 print('Checked',len(PAGES),'HTML pages, local links, all binary payloads, configuration and demo data')
 if errors:
