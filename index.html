@@ -64,7 +64,7 @@
 <div class="stat"><div class="stat-head">PLATFORMY</div><div class="stat-number">03<span>poskytovatelé</span></div><div class="stat-desc">AWS · Azure · Google Cloud</div></div>
 <div class="stat"><div class="stat-head">SCÉNÁŘE</div><div class="stat-number">03<span>testy</span></div><div class="stat-desc">Základní · Obrázky · Interaktivita</div></div>
 <div class="stat"><div class="stat-head">TESTOVACÍ SOUBORY</div><div class="stat-number">03<span>velikosti souborů</span></div><div class="stat-desc">128 KB · 512 KB · 1 MB</div></div>
-<div class="stat"><div class="stat-head">NASAZENÍ</div><div class="stat-number"><span id="deploymentCount">00</span><span>/ 03 online</span></div><div class="stat-desc" id="deploymentStatus">Adresy doplníme po nasazení</div></div>
+<div class="stat"><div class="stat-head">VEŘEJNÉ ADRESY</div><div class="stat-number"><span id="deploymentCount">—</span><span>/ 03 nastaveno</span></div><div class="stat-desc" id="deploymentStatus">Načítání adres platforem</div></div>
 </div>
 <section aria-labelledby="scenario-heading" class="section" id="scenarios">
 <div class="section-top"><div><div class="section-eyebrow">02 — Testovací scénáře</div><h2 id="scenario-heading">Testovací scénáře</h2><p>Každý scénář sleduje jiný typ obsahu. Na všech platformách používáme stejné soubory.</p></div></div>
@@ -84,7 +84,7 @@
 <section aria-labelledby="hosts-heading" class="section" id="hosts">
 <div class="section-top"><div><div class="section-eyebrow">03 — Cloudové platformy</div><h2 id="hosts-heading">Srovnávané platformy</h2><p>Odkazy na veřejně dostupné weby doplníme po jejich nasazení.</p></div></div>
 <div aria-live="polite" class="host-grid" id="platformCards"></div>
-<div class="hint-strip"><div><strong>Weby zatím nejsou nasazené.</strong> Po získání veřejných HTTPS adres je doplníme do souboru <code>data/platforms.json</code>; poté se přepínání mezi poskytovateli automaticky aktivuje.</div></div>
+<div class="hint-strip"><div id="platformHint" role="status">Načítání veřejných adres platforem…</div></div>
 </section>
 <section aria-labelledby="benchmark-heading" class="section" id="benchmark">
 <div class="section-top"><div><div class="section-eyebrow">04 — Měření přenosu</div><h2 id="benchmark-heading">Měření přenosových časů</h2><p>Měříme dobu stažení stejných souborů o známé velikosti. Výsledky se ukládají pouze do exportovaného souboru.</p></div></div>

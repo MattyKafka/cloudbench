@@ -47,7 +47,8 @@ async function loadPlatforms() {
       {id:"GOOGLE", name:"Google Cloud", service:"Firebase Hosting", url:""}
     ];
     drawPlatforms();
-    $("#deploymentStatus").textContent = "Pro načtení konfigurace spusťte místní server.";
+    $("#deploymentStatus").textContent = "Adresy platforem se nepodařilo načíst.";
+    $("#platformHint").textContent = "Adresy platforem se nepodařilo načíst. Obnov stránku a zkus to znovu.";
     console.warn("CloudBench: platform configuration unavailable.", err);
   }
 }
@@ -64,19 +65,21 @@ function drawPlatforms() {
     const header = document.createElement("div"); header.className = "host-header";
     const logo = document.createElement("span"); logo.className = `host-logo ${p.id.toLowerCase()}`; logo.textContent = PLATFORM_ABBR[p.id] || p.id;
     const tag = document.createElement("span"); tag.className = `host-state${url ? " live" : ""}`;
-    tag.textContent = url ? (state.platformId === p.id ? "AKTUÁLNÍ PLATFORMA" : "NASTAVENO") : "NENASAZENO";
+    tag.textContent = url ? (state.platformId === p.id ? "AKTUÁLNÍ PLATFORMA" : "NASTAVENO") : "ADRESA CHYBÍ";
     header.append(logo, tag);
     const title = document.createElement("h3"); title.textContent = p.name;
     const subtitle = document.createElement("p"); subtitle.className = "host-subtitle"; subtitle.textContent = p.service;
-    const address = document.createElement("p"); address.className = "host-address"; address.textContent = url ? url.href : "URL bude doplněna po nasazení";
+    const address = document.createElement("p"); address.className = "host-address"; address.textContent = url ? url.href : "Veřejná adresa zatím není vyplněná";
     const link = document.createElement(url ? "a" : "span"); link.className = "host-open";
-    link.textContent = url ? "Otevřít veřejný web ↗" : "Dostupné po nasazení";
+    link.textContent = url ? "Otevřít veřejný web ↗" : "Odkaz není nastaven";
     if (url) {link.href = url.href; link.rel = "noopener noreferrer"; link.target = "_blank";}
     card.append(header, title, subtitle, address, link);
     cards.append(card);
   }
   $("#deploymentCount").textContent = String(configured).padStart(2, "0");
-  $("#deploymentStatus").textContent = configured === 3 ? "Všechny veřejné adresy nastaveny" : "Adresy doplníme po nasazení";
+  const missing = state.platforms.filter((p) => !validRemoteUrl(p.url)).map((p) => p.name);
+  $("#deploymentStatus").textContent = configured === 3 ? "Všechny veřejné adresy jsou nastavené" : configured === 0 ? "Veřejné adresy zatím nejsou nastavené" : `Chybí adresa: ${missing.join(", ")}`;
+  $("#platformHint").textContent = configured === 3 ? "Všechny tři platformy mají nastavenou veřejnou adresu. Web otevřeš odkazem na příslušné kartě. Počet vyjadřuje vyplněné adresy, nikoli kontrolu dostupnosti webů." : configured === 0 ? "Veřejné adresy zatím nejsou nastavené." : `Nastavené adresy: ${configured} ze 3. Weby s vyplněnou adresou můžeš otevřít. Chybí adresa: ${missing.join(", ")}.`;
   $("#sideEnvironment").textContent = state.platformId === "LOCAL" ? "Místní náhled" : `${state.platformId} · nasazená verze`;
   $("#sideHost").textContent = state.platformId === "LOCAL" ? (location.hostname || "Místní náhled") : location.hostname;
 }

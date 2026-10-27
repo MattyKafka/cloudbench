@@ -10,8 +10,8 @@
     {
       "id": "AZURE",
       "name": "Microsoft Azure",
-      "service": "Static Web Apps",
-      "url": ""
+      "service": "Azure Blob Storage · statický web",
+      "url": "https://cloudbench.z36.web.core.windows.net/"
     },
     {
       "id": "GOOGLE",
